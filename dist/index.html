@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<head>
+	<title>Browserify Image Board</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="btn btn-default" id="btn-plus"><span class="glyphicon glyphicon-plus"></span></button>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid" id="form-container">
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1">
+				<form id="form-add-image">
+					<div class="form-group">
+						<input type="text" class="form-control" id="input-url" placeholder="Image URL">
+							<div class="alert alert-danger" role="alert" id="url-alert">
+							  	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+							  	<span class="sr-only">Error:</span>Enter a valid URL
+							</div>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="input-caption" placeholder="Image Caption">
+						<div class="alert alert-danger" role="alert" id="caption-alert">
+							  	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+							  	<span class="sr-only">Error:</span>You must enter a caption
+							</div>
+					</div>
+					<div class="btn-group pull-right" role="group">
+						<button type="button" class="btn-lg btn-default" id="btn-cancel">Cancel</button>
+						<button type="button" class="btn-lg btn-success" id="btn-add-image"><span class="glyphicon glyphicon-picture"></span> Add Image</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	
+	<section id="image-album">
+	
+	</section>
+	
+
+	<script type="text/template" id="image-template">
+		<div class="row">        
+			<div class="col-xs-8 col-xs-offset-2">
+				<div class="well">
+					<img src="<%= imageUrl %>" class="img-responsive">
+					<h3><%= caption %></h3>
+				</div>
+			</div>                    
+		</div>
+	</script>
+
+	<script type="text/javascript" src="scripts/combined.js"></script>
+</body>
+</html>
